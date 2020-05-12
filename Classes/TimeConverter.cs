@@ -9,9 +9,9 @@ namespace BerlinClock
         {
             //split string into hours and minutes
 
-            var clock = new Clock(aTime);
+            var clock = new Clock();
             //convert to string
-            return clock.Time;
+            return clock.ConvertTime(aTime);
         }
     }
 }
