@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs/BerlinClock/v15/Server/sqlite3/db.lock
+/.vs/BerlinClock/v15/Server/sqlite3/storage.ide
+/.vs/BerlinClock/v15/Server/sqlite3
+/bin/Debug
+/.vs/BerlinClock/v15/.suo
+/obj/Debug
+/packages/SpecFlow.1.9.0
