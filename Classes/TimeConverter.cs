@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BerlinClock
 {
@@ -9,7 +7,11 @@ namespace BerlinClock
     {
         public string convertTime(string aTime)
         {
-            throw new NotImplementedException();
+            //split string into hours and minutes
+
+            var clock = new Clock();
+            //convert to string
+            return clock.ConvertTime(aTime);
         }
     }
 }
