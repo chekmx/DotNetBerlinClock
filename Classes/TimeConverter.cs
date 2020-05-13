@@ -8,10 +8,24 @@ namespace BerlinClock
         public string convertTime(string aTime)
         {
             //split string into hours and minutes
-
-            var clock = new Clock();
-            //convert to string
-            return clock.ConvertTime(aTime);
+            try
+            {
+                var clock = new Clock();
+                //convert to string
+                return clock.ConvertTime(aTime);
+            }
+            catch (FormatException)
+            {
+                return string.Format("Cannot translate '{0}' into a time", aTime);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return string.Format("Cannot translate '{0}' into a time as it has out of range values", aTime);
+            }
+            catch (Exception)
+            {
+                return string.Format("Cannot translate '{0}' into a time as it encountered an expected excpetion", aTime);
+            }
         }
     }
 }

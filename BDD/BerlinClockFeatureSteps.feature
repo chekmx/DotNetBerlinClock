@@ -49,3 +49,17 @@ RRRR
 OOOOOOOOOOO
 OOOO
 """
+
+Scenario: One second after Midnight 24:00:01
+When the time is "24:00:01"
+Then the clock should look like
+"""
+Cannot translate '24:00:01' into a time as it has out of range values
+"""
+
+Scenario: Unexpected String
+When the time is "not a time"
+Then the clock should look like
+"""
+Cannot translate 'not a time' into a time
+"""

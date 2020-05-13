@@ -10,3 +10,5 @@
 /obj/Debug
 /packages/SpecFlow.1.9.0
 /packages
+/BerlinClockTest/bin/Debug
+/BerlinClockTest/obj/Debug
