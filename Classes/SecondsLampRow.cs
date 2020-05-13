@@ -2,8 +2,8 @@
 {
     public class SecondsLampRow: LampRow
     {
-        public SecondsLampRow(int bulbCount, BulbColour colour)
-            : base(bulbCount, colour)
+        public SecondsLampRow(TimeUnit timeUnit, int bulbCount, BulbColour colour)
+            : base(timeUnit, bulbCount, colour)
         { }
 
         protected override bool IsLampOn(int time, int lampNumber)

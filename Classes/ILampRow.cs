@@ -6,7 +6,7 @@ namespace BerlinClock
     {
         IEnumerable<Lamp> Lamps { get; }
 
-        void SwitchOnLamps(int time);
+        void SwitchOnLamps(Time time);
         string ToString();
     }
 }

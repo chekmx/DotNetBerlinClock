@@ -1,31 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace BerlinClock
 {
     public abstract class LampRow : ILampRow
     {
-        public LampRow(int bulbCount, BulbColour colour)
+        private TimeUnit timeUnit;
+
+        public LampRow(TimeUnit timeUnit, int bulbCount, BulbColour colour)
         {
-            InitializeRow(bulbCount, colour);
+            InitializeRow(timeUnit, bulbCount, colour);
         }
 
         public LampRow(
+            TimeUnit timeUnit,
             int bulbCount, 
             BulbColour colour, 
             int? seperationCount, 
             BulbColour sepeartionColour)
         {
-            InitializeRow(bulbCount, colour, seperationCount, sepeartionColour);
+            InitializeRow(timeUnit, bulbCount, colour, seperationCount, sepeartionColour);
         }
 
         private void InitializeRow(
+            TimeUnit timeUnit,
             int bulbCount, 
             BulbColour colour, 
             int? seperationCount = null, 
             BulbColour seperationColour = BulbColour.R)
         {
+            this.timeUnit = timeUnit; 
             var lamps = new List<Lamp>();
             for (int i = 1; i <= bulbCount; i++)
             {
@@ -40,13 +44,33 @@ namespace BerlinClock
             }
             this.Lamps = lamps;
         }
+        
+        private int GetTimeUnit(Time time)
+        {
+            switch (this.timeUnit)
+            {
+                case TimeUnit.Hour:
+                    {
+                        return time.Hours;
+                    }
+                case TimeUnit.Minute:
+                    {
+                        return time.Minutes;
+                    }
+                case TimeUnit.Second:
+                    {
+                        return time.Seconds;
+                    }
+            }
+            return 0;
+        }
 
-        public void SwitchOnLamps(int time)
+        public void SwitchOnLamps(Time time)
         {
             int i = 1;
             foreach (Lamp lamp in this.Lamps)
             {
-                lamp.IsOn = this.IsLampOn(time, i);
+                lamp.IsOn = this.IsLampOn(GetTimeUnit(time), i);
                 i++;
             }
         }

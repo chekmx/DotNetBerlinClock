@@ -2,12 +2,12 @@
 {
     public class FiveUnitLampRow : LampRow
     {
-        public FiveUnitLampRow(int bulbCount, BulbColour colour)
-            : base(bulbCount, colour)
+        public FiveUnitLampRow(TimeUnit timeUnit, int bulbCount, BulbColour colour)
+            : base(timeUnit, bulbCount, colour)
         { }
 
-        public FiveUnitLampRow(int bulbCount, BulbColour colour, int? seperationCount, BulbColour seperationColour)
-           : base(bulbCount, colour, seperationCount, seperationColour)
+        public FiveUnitLampRow(TimeUnit timeUnit, int bulbCount, BulbColour colour, int? seperationCount, BulbColour seperationColour)
+           : base(timeUnit, bulbCount, colour, seperationCount, seperationColour)
         { }
 
         protected override bool IsLampOn(int time, int lampNumber)

@@ -60,6 +60,7 @@
     <Compile Include="Classes\SingleUnitLampRow.cs" />
     <Compile Include="Classes\Time.cs" />
     <Compile Include="Classes\TimeSpanExtension.cs" />
+    <Compile Include="Classes\TimeUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BDD\BerlinClockFeatureSteps.feature.cs">
       <AutoGen>True</AutoGen>

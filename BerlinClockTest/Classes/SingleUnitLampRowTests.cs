@@ -17,8 +17,8 @@ namespace BerlinClock.Tests
         {
             var colour = (BulbColour)Enum.Parse(typeof(BulbColour), bulbColour);
 
-            ILampRow lampRow = new SingleUnitLampRow(bulbcount, colour);
-            lampRow.SwitchOnLamps(time);
+            ILampRow lampRow = new SingleUnitLampRow(TimeUnit.Hour, bulbcount, colour);
+            lampRow.SwitchOnLamps(new Time(time, 0, 0));
             lampRow.ToString().Should().Be(expected);
         }
     }
