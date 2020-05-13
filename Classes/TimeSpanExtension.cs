@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace BerlinClock
 {
@@ -8,11 +9,38 @@ namespace BerlinClock
         {
             string[] timeParts = aTime.Split(':');
 
-            string hoursString = timeParts[0];
-            string minutesString = timeParts[1];
-            string secondsString = timeParts[2];
+            if (timeParts.GetUpperBound(0) != 2)
+            {
+                throw new FormatException();
+            }
 
-            return new Time(int.Parse(hoursString), int.Parse(minutesString), int.Parse(secondsString));
+            int hour = getUnit(timeParts[0], 0, 24);
+            int minutes = getUnit(timeParts[1], 0, 59);
+            int seconds = getUnit(timeParts[2], 0, 59);
+            
+            if(hour == 24 && (minutes > 0 || seconds > 0 ))
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            return new Time(hour, minutes, seconds);
+        }
+
+        private static int getUnit(string timeString, int min, int  max)
+        {
+            int time;
+
+            if(!int.TryParse(timeString, out time))
+            {
+                throw new FormatException();
+            }
+
+            if(time < min || time > max)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            return time;
         }
     }
 }
