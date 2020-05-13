@@ -58,7 +58,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LampTests.cs" />
+    <Compile Include="Classes\LampRowTests.cs" />
+    <Compile Include="Classes\LampTests.cs" />
+    <Compile Include="Classes\TimeSpanExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

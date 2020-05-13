@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace BerlinClock
@@ -36,17 +37,12 @@ namespace BerlinClock
 
         public string ConvertTime(string aTime)
         {
-            string[] timeParts = aTime.Split(':');
-
-            string hoursString = timeParts[0];
-            string minutesString = timeParts[1];
-            string secondsString = timeParts[2];
-            
-            this.lampRows[0].SwitchOnLamps(Convert.ToInt16(secondsString));
-            this.lampRows[1].SwitchOnLamps(Convert.ToInt16(hoursString));
-            this.lampRows[2].SwitchOnLamps(Convert.ToInt16(hoursString));
-            this.lampRows[3].SwitchOnLamps(Convert.ToInt16(minutesString));
-            this.lampRows[4].SwitchOnLamps(Convert.ToInt16(minutesString));
+            var timeSpan = aTime.ToTimeSpan();
+            this.lampRows[0].SwitchOnLamps(timeSpan.Seconds);
+            this.lampRows[1].SwitchOnLamps(timeSpan.Hours);
+            this.lampRows[2].SwitchOnLamps(timeSpan.Hours);
+            this.lampRows[3].SwitchOnLamps(timeSpan.Minutes);
+            this.lampRows[4].SwitchOnLamps(timeSpan.Minutes);
 
             return string.Join(Environment.NewLine, this.lampRows.Select(l => l.ToString()));
         }

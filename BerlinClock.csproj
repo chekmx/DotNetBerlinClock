@@ -55,6 +55,8 @@
     <Compile Include="Classes\ILampRow.cs" />
     <Compile Include="Classes\Lamp.cs" />
     <Compile Include="Classes\LampRow.cs" />
+    <Compile Include="Classes\Time.cs" />
+    <Compile Include="Classes\TimeSpanExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BDD\BerlinClockFeatureSteps.feature.cs">
       <AutoGen>True</AutoGen>
