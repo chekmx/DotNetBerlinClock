@@ -4,33 +4,28 @@ using System.Linq;
 
 namespace BerlinClock
 {
-    public class LampRow : ILampRow
+    public abstract class LampRow : ILampRow
     {
-        private Func<int, int, bool> isOn;
-
-        public LampRow(int bulbCount, BulbColour colour, Func<int, int, bool> isOnFunction)
+        public LampRow(int bulbCount, BulbColour colour)
         {
-            InitializeRow(bulbCount, colour, isOnFunction);
+            InitializeRow(bulbCount, colour);
         }
 
         public LampRow(
             int bulbCount, 
             BulbColour colour, 
-            Func<int, int, bool> isOnFunction, 
             int? seperationCount, 
             BulbColour sepeartionColour)
         {
-            InitializeRow(bulbCount, colour, isOnFunction, seperationCount, sepeartionColour);
+            InitializeRow(bulbCount, colour, seperationCount, sepeartionColour);
         }
 
         private void InitializeRow(
             int bulbCount, 
             BulbColour colour, 
-            Func<int, int, bool> isOnFunction, 
             int? seperationCount = null, 
             BulbColour seperationColour = BulbColour.R)
         {
-            this.isOn = isOnFunction;
             var lamps = new List<Lamp>();
             for (int i = 1; i <= bulbCount; i++)
             {
@@ -51,10 +46,12 @@ namespace BerlinClock
             int i = 1;
             foreach (Lamp lamp in this.Lamps)
             {
-                lamp.IsOn = this.isOn(time, i);
+                lamp.IsOn = this.IsLampOn(time, i);
                 i++;
             }
         }
+
+        protected abstract bool IsLampOn(int time, int lampNumber);
 
         public IEnumerable<Lamp> Lamps { get; private set; }
 

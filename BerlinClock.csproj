@@ -52,9 +52,12 @@
     <Compile Include="BDD\BerlinClockFeatureSteps.cs" />
     <Compile Include="Classes\BulbColour.cs" />
     <Compile Include="Classes\Clock.cs" />
+    <Compile Include="Classes\FiveUnitLampRow.cs" />
     <Compile Include="Classes\ILampRow.cs" />
     <Compile Include="Classes\Lamp.cs" />
     <Compile Include="Classes\LampRow.cs" />
+    <Compile Include="Classes\SecondsLampRow.cs" />
+    <Compile Include="Classes\SingleUnitLampRow.cs" />
     <Compile Include="Classes\Time.cs" />
     <Compile Include="Classes\TimeSpanExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

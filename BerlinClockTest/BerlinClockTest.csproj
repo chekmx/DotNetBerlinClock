@@ -58,8 +58,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\LampRowTests.cs" />
+    <Compile Include="Classes\FiveUnitLampRowTests.cs" />
     <Compile Include="Classes\LampTests.cs" />
+    <Compile Include="Classes\SecondsLampRowTests.cs" />
+    <Compile Include="Classes\SingleUnitLampRowTests.cs" />
     <Compile Include="Classes\TimeSpanExtensionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

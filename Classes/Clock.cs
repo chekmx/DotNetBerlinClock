@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 
 namespace BerlinClock
@@ -12,27 +11,12 @@ namespace BerlinClock
         {
             this.lampRows = new List<ILampRow>()
             {
-                 new LampRow(1, BulbColour.Y, SecondsOn),
-                 new LampRow(4, BulbColour.R, FiveHourBlocksOn),
-                 new LampRow(4, BulbColour.R, SingleHourBlocksOn),
-                 new LampRow(11, BulbColour.Y, FiveHourBlocksOn, 3, BulbColour.R),
-                 new LampRow(4, BulbColour.Y, SingleHourBlocksOn)
+                 new SecondsLampRow(1, BulbColour.Y),
+                 new FiveUnitLampRow(4, BulbColour.R),
+                 new SingleUnitLampRow(4, BulbColour.R),
+                 new FiveUnitLampRow(11, BulbColour.Y, 3, BulbColour.R),
+                 new SingleUnitLampRow(4, BulbColour.Y)
             };
-        }
-
-        private static bool SecondsOn(int seconds, int lampNumber)
-        {
-            return seconds % 2 == 0;
-        }
-
-        private static bool FiveHourBlocksOn(int hours, int lampNumber)
-        {
-            return hours / 5  >= lampNumber;
-        }
-
-        private static bool SingleHourBlocksOn(int hours, int lampNumber)
-        {
-            return hours % 5 >= lampNumber;
         }
 
         public string ConvertTime(string aTime)
